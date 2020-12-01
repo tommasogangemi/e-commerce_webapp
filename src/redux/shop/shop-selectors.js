@@ -9,8 +9,21 @@ export const selectCollections = createSelector(
 
 export const selectCollectionsForPreview = createSelector(
 	selectCollections,
-	collections => Object.keys(collections).map(key => collections[key])
+	collections =>
+		collections ? Object.keys(collections).map(key => collections[key]) : []
 );
 
 export const selectCollection = routeName =>
-	createSelector(selectCollections, collections => collections[routeName]);
+	createSelector(selectCollections, collections =>
+		collections ? collections[routeName] : null
+	);
+
+export const selectIsFetching = createSelector(
+	selectShop,
+	shop => shop.isFetching
+);
+
+export const selectIsCollectionsLoaded = createSelector(
+	selectShop,
+	shop => !!shop.collections
+);
