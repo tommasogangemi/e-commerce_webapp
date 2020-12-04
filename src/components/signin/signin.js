@@ -7,7 +7,7 @@ import {
 import FormInput from '../form-input/form-input';
 import CustomButton from '../custom-button/custom-button';
 //firebase
-import './signin.scss';
+import { SigninContainer, ButtonsContainer } from './signin-styles';
 
 const Signin = ({ emailSigninStart, googleSigninStart }) => {
 	const [userCredentials, setCredentials] = useState({
@@ -29,7 +29,7 @@ const Signin = ({ emailSigninStart, googleSigninStart }) => {
 	};
 
 	return (
-		<div className='sign-in'>
+		<SigninContainer>
 			<h2>I already have an account</h2>
 			<span>Sign in with tour e-mail and password</span>
 
@@ -51,7 +51,7 @@ const Signin = ({ emailSigninStart, googleSigninStart }) => {
 					required
 					handleChange={handleChange}
 				/>
-				<div className='buttons'>
+				<ButtonsContainer>
 					<CustomButton type='submit'>Submit</CustomButton>
 					<CustomButton
 						onClick={googleSigninStart}
@@ -60,9 +60,9 @@ const Signin = ({ emailSigninStart, googleSigninStart }) => {
 					>
 						Sign in with Google
 					</CustomButton>
-				</div>
+				</ButtonsContainer>
 			</form>
-		</div>
+		</SigninContainer>
 	);
 };
 

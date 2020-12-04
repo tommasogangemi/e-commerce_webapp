@@ -4,13 +4,13 @@ import { ReactComponent as ShoppingIcon } from '../../assets/shopping-bag.svg';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { showCartDropdown } from '../../redux/cart/cart-actions';
-import './shopping-bag.scss';
+import { CartIconContainer } from './shopping-bag-styles';
 
 const ShoppingBag = ({ showCartDropdown, itemCount }) => (
-	<div onClick={showCartDropdown} className='cart-icon'>
+	<CartIconContainer onClick={showCartDropdown}>
 		<ShoppingIcon className='shopping-icon' />
 		<span className='item-count'>{itemCount}</span>
-	</div>
+	</CartIconContainer>
 );
 
 const mapStateToProps = createStructuredSelector({
